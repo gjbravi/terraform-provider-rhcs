@@ -33,7 +33,12 @@ resource "rhcs_identity_provider" "ldap_idp" {
   name    = "LDAP"
   ldap = {
     url        = var.ldap_url
-    attributes = {}
+    attributes = {
+      id = ["foo"],
+      email = ["foo@example.com"],
+      name = ["foo"],
+      preferred_username = ["foo"]
+    }
     # Optional Attributes
     ca       = var.ldap_ca
     insecure = var.ldap_insecure
